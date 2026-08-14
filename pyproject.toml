@@ -1,0 +1,15 @@
+[project]
+name = "gracehomenails-website"
+version = "0.1.0"
+description = "Wagtail CMS website for Grace Home Nails"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "django>=6,<6.1",
+    "django-allauth[socialaccount]>=65.13,<66",
+    "dj-database-url>=3.1.2,<4",
+    "gunicorn>=26,<27",
+    "psycopg[binary]>=3.3.4,<4",
+    "wagtail>=7.4.0,<7.5.0",
+    "whitenoise>=6.12,<7",
+]

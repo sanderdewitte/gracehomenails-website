@@ -1,0 +1,29 @@
+{% extends "wagtailadmin/login.html" %}
+
+{% block fields %}
+    {% if oidc_provider_id and oidc_client_name %}
+        <div class="oidc-login">
+            <a href="{% url 'openid_connect_login' provider_id=oidc_provider_id %}" class="button oidc-login__button">
+                {{ oidc_client_name }}
+            </a>
+            <button type="button" class="oidc-login__toggle" aria-expanded="false" aria-controls="local-login-fields">
+                Local login
+            </button>
+            <div id="local-login-fields" class="oidc-login__local">
+                {{ block.super }}
+            </div>
+        </div>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block submit_buttons %}
+    {% if oidc_provider_id and oidc_client_name %}
+        <div class="oidc-login__local-submit">
+            {{ block.super }}
+        </div>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}

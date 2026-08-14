@@ -1,0 +1,20 @@
+.oidc-login__button {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.oidc-login__toggle {
+    display: block;
+    margin: 1rem auto 0;
+}
+
+.js .oidc-login__local,
+.js .oidc-login__local-submit {
+    display: none;
+}
+
+.js .oidc-login__local.is-open,
+.js .oidc-login__local-submit.is-open {
+    display: block;
+}
