@@ -1,21 +1,37 @@
 {% extends "base.html" %}
-{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
-
 {% block content %}
+<section class="hero{% if not page.hero_image %} hero--placeholder{% endif %}">
+    {% if page.hero_image %}
+        {% image page.hero_image fill-1600x900 as hero_img %}
+        <img class="hero__image" src="{{ hero_img.url }}" alt="{{ page.hero_image.title }}">
+    {% endif %}
+    <div class="hero__content">
+        <h1 class="hero__title">{{ page.title }}</h1>
+        {% if page.hero_tagline %}
+            <p class="hero__tagline">{{ page.hero_tagline }}</p>
+        {% endif %}
+        {% if page.booking_url %}
+            <a class="btn btn--primary hero__cta"
+               href="{{ page.booking_url }}" target="_blank" rel="noopener">
+                {{ page.booking_label|default:"Book Now" }}
+            </a>
+        {% endif %}
+    </div>
+</section>
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+{% if page.intro %}
+    <section class="home-intro">
+        {{ page.intro|richtext }}
+    </section>
+{% endif %}
 
-{% endblock content %}
+<section class="home-services-teaser">
+    <h2>Our Services</h2>
+    <p>Manicures, Gellak &amp; BIAB, nail extensions, and special finishes — all done with care.</p>
+    <a class="btn btn--secondary" href="/services/">View Services &amp; Prices</a>
+</section>
+{% endblock %}

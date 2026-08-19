@@ -1,0 +1,184 @@
+:root {
+    /* Palette pulled from the Grace Home Nails logo */
+    --grace-cream: #f2ecd2;
+    --grace-cream-light: #f8f4e6;
+    --grace-green: #33421f;
+    --grace-green-dark: #232f15;
+    --grace-gold: #b8933f;
+    --grace-gold-light: #d4b876;
+}
+
+body {
+    color: var(--grace-green-dark);
+    background: var(--grace-cream-light);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+}
+.btn:hover {
+    opacity: 0.85;
+}
+.btn--primary {
+    background: var(--grace-gold);
+    color: var(--grace-cream-light);
+}
+.btn--secondary {
+    background: transparent;
+    border: 2px solid var(--grace-green);
+    color: var(--grace-green);
+}
+
+/* ---------- Hero (home page) ---------- */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: var(--grace-green-dark);
+}
+.hero--placeholder {
+    background: linear-gradient(135deg, var(--grace-cream) 0%, var(--grace-cream-light) 100%);
+}
+.hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 32rem;
+    padding: 2rem;
+}
+.hero__title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--grace-green-dark);
+}
+.hero__tagline {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--grace-green);
+}
+
+/* ---------- Home intro / services teaser ---------- */
+.home-intro, .home-services-teaser {
+    max-width: 40rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+.home-services-teaser h2 {
+    color: var(--grace-green-dark);
+}
+
+/* ---------- Services page ---------- */
+.services-page__header {
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+.services-page__intro {
+    color: var(--grace-green);
+    margin-bottom: 1.5rem;
+}
+.services-page__footer {
+    text-align: center;
+    margin: 3rem 0;
+}
+.service-category {
+    max-width: 40rem;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+.service-category h2 {
+    color: var(--grace-gold);
+    border-bottom: 2px solid var(--grace-cream);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.service-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.service-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--grace-cream);
+}
+.service-item__main {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--grace-green-dark);
+}
+.service-item__duration {
+    font-weight: 400;
+    color: var(--grace-green);
+    font-size: 0.9rem;
+}
+.service-item__description {
+    color: var(--grace-green);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+.service-item__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+.service-item__price {
+    font-weight: 600;
+    color: var(--grace-gold);
+}
+.service-item__badge {
+    font-size: 0.75rem;
+    background: var(--grace-cream);
+    color: var(--grace-green-dark);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+}
+
+/* ---------- Site logo (header) ---------- */
+.site-logo img {
+    height: 64px;
+    width: auto;
+}
+
+/* ---------- Site header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: var(--grace-cream-light);
+    border-bottom: 1px solid var(--grace-cream);
+}
+.site-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+.site-nav a {
+    color: var(--grace-green-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+.site-nav a:hover {
+    color: var(--grace-gold);
+}
