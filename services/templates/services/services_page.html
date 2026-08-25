@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<section class="services-page">
+    <header class="services-page__header">
+        <h1>{{ page.title }}</h1>
+        {% if page.intro %}
+            <div class="services-page__intro">{{ page.intro|richtext }}</div>
+        {% endif %}
+        {% if page.booking_url %}
+            <a class="btn btn--primary services-page__book-top"
+               href="{{ page.booking_url }}" target="_blank" rel="noopener">
+                {{ page.booking_label|default:"Book Now" }}
+            </a>
+        {% endif %}
+    </header>
+
+    {% for block in page.body %}
+        {% if block.block_type == "service_category" %}
+            <section class="service-category">
+                <h2>{{ block.value.category_name }}</h2>
+                <ul class="service-list">
+                    {% for service in block.value.services %}
+                        <li class="service-item">
+                            <div class="service-item__main">
+                                <span class="service-item__name">{{ service.name }}</span>
+                                {% if service.duration %}
+                                    <span class="service-item__duration">{{ service.duration }}</span>
+                                {% endif %}
+                            </div>
+                            {% if service.description %}
+                                <p class="service-item__description">{{ service.description }}</p>
+                            {% endif %}
+                            <div class="service-item__meta">
+                                <span class="service-item__price">{{ service.price }}</span>
+                                {% if service.badge %}
+                                    <span class="service-item__badge">{{ service.badge }}</span>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    {% endfor %}
+
+    {% if page.booking_url %}
+        <footer class="services-page__footer">
+            <a class="btn btn--primary services-page__book-bottom"
+               href="{{ page.booking_url }}" target="_blank" rel="noopener">
+                {{ page.booking_label|default:"Book Now" }}
+            </a>
+        </footer>
+    {% endif %}
+</section>
+{% endblock %}
