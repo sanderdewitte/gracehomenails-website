@@ -29,7 +29,8 @@ COPY --chown=wagtail:wagtail . .
 
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
-    PORT=8000
+    PORT=8000 \
+    DJANGO_SETTINGS_MODULE=gracehomenails_website.settings.production
 
 USER wagtail
 
