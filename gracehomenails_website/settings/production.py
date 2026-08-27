@@ -46,6 +46,7 @@ STORAGES["staticfiles"]["BACKEND"] = "whitenoise.storage.CompressedManifestStati
 OIDC_GROUPS_ATTRIBUTE = os.environ["OIDC_GROUPS_ATTRIBUTE"]
 OIDC_PROVIDER_ID = os.environ["OIDC_PROVIDER_ID"]
 OIDC_CLIENT_NAME = os.environ["OIDC_CLIENT_NAME"]
+SOCIALACCOUNT_LOGIN_ON_GET = True
 SOCIALACCOUNT_PROVIDERS = {
     "openid_connect": {
         "SCOPE": [
