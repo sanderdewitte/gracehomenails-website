@@ -68,6 +68,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# Redirect authenticated users to the Wagtail administration interface.
+LOGIN_REDIRECT_URL = "/admin/"
+
 # Redirect logout through the configured OpenID Connect provider.
 ACCOUNT_LOGOUT_REDIRECT_URL = os.environ["OIDC_LOGOUT_REDIRECT_URL"]
 
